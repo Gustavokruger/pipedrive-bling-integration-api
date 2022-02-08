@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Gustavokruger/leads-integration/issues"
   },
-  "homepage": "https://github.com/Gustavokruger/leads-integration#readme"
+  "homepage": "https://github.com/Gustavokruger/leads-integration#readme",
+  "dependencies": {
+    "standard": "^16.0.4"
+  }
 }
