@@ -1,25 +1,33 @@
 {
-  "name": "leads-integration",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Gustavokruger/leads-integration.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Gustavokruger/leads-integration/issues"
-  },
-  "homepage": "https://github.com/Gustavokruger/leads-integration#readme",
-  "devDependencies": {
-    "husky": "^0.5.3",
-    "jest": "^27.5.0",
-    "lint-staged": "^12.3.3",
-    "standard": "^16.0.4"
-  }
+   "name": "leads-integration",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "test": "jest"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Gustavokruger/leads-integration.git"
+   },
+   "author": "",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/Gustavokruger/leads-integration/issues"
+   },
+   "homepage": "https://github.com/Gustavokruger/leads-integration#readme",
+   "devDependencies": {
+      "@babel/eslint-parser": "^7.17.0",
+      "@types/mongoose": "^5.11.97",
+      "husky": "^0.5.3",
+      "jest": "^27.5.0",
+      "lint-staged": "^12.3.3"
+   },
+   "dependencies": {
+      "@tsclean/core": "^1.7.0",
+      "@types/node": "^17.0.16",
+      "dotenv": "^16.0.0",
+      "helmet": "^5.0.2",
+      "mongoose": "^6.0.10"
+   }
 }
