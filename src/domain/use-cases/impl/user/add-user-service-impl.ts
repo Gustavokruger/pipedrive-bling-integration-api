@@ -1,9 +1,9 @@
 
 
-import {IAddUserService} from "../../add-user-service";
-import { ADD_USER_REPOSITORY, IAddUserRepository } from "../../../models/contracts/add-user-repository";
-import { Adapter, Service } from "@tsclean/core";
+import {IAddUserService} from "../../user/add-user-service";
+import { ADD_USER_REPOSITORY, IAddUserRepository } from "../../../models/contracts/user/add-user-repository";
 import { AddUserParams, UserModel } from "../../../models/user";
+import { Service, Adapter } from "@tsclean/core";
 
 @Service()
 export class AddUserServiceImpl implements IAddUserService {
