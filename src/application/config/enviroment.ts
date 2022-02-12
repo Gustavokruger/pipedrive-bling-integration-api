@@ -6,6 +6,9 @@
 */
 export const ENVIRONMENT = "development";
 export const PORT = "9000"
+export const PIPEDRIVE_KEY= "7ba0b907f21eb4fa08d96b877e069e175397a48c";
+export const BLING_KEY=  "6216b723f3b34b8cc12395a46807d2a287bab8c80d23d9ea4399291feb6f9d506623cc24";
+
 
 
 /**

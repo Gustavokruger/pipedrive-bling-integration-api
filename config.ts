@@ -4,25 +4,31 @@ import dotenv from "dotenv";
 dotenv.config({ path: path.resolve(__dirname, "../config/config.env") });
 
 interface ENV {
-    NODE_ENV: string | undefined;
-    PORT: number | undefined;
-    MONGO_URI: string | undefined;
-    JWT_SECRET: string | undefined;
+    NODE_ENV: string;
+    PORT: string;
+    MONGO_URI: string;
+    JWT_SECRET: string;
+    PIPEDRIVE_KEY: string;
+    BLING_KEY: string;
 }
   
 interface Config {
     NODE_ENV: string;
-    PORT: number;
+    PORT: string;
     MONGO_URI: string;
     JWT_SECRET: string;
+    PIPEDRIVE_KEY: string;
+    BLING_KEY: string;
 }
 
 const getConfig = (): ENV => {
     return {
       NODE_ENV: process.env.NODE_ENV,
-      PORT: process.env.PORT ? Number(process.env.PORT) : undefined,
+      PORT: process.env.PORT,
       MONGO_URI: process.env.MONGO_URI,
-      JWT_SECRET: process.env.JWT_SECRET
+      JWT_SECRET: process.env.JWT_SECRET,
+      PIPEDRIVE_KEY: process.env.PIPEDRIVE_KEY,
+      BLING_KEY: process.env.BLING_KEY
     };
   };
   

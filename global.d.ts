@@ -4,5 +4,7 @@ namespace NodeJS {
       PORT: string;
       MONGO_URI: string;
       JWT_SECRET: string;
+      PIPEDRIVE_KEY: string;
+      BLING_KEY: string;
     }
   }
