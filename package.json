@@ -18,6 +18,8 @@
    "homepage": "https://github.com/Gustavokruger/leads-integration#readme",
    "devDependencies": {
       "@babel/eslint-parser": "^7.17.0",
+      "@types/bcrypt": "^5.0.0",
+      "@types/jsonwebtoken": "^8.5.8",
       "@types/mongoose": "^5.11.97",
       "husky": "^0.5.3",
       "jest": "^27.5.0",
@@ -26,8 +28,11 @@
    "dependencies": {
       "@tsclean/core": "^1.7.0",
       "@types/node": "^17.0.16",
+      "bcrypt": "^5.0.1",
       "dotenv": "^16.0.0",
       "helmet": "^5.0.2",
-      "mongoose": "^6.0.10"
+      "jsonwebtoken": "^8.5.1",
+      "mongoose": "^6.0.10",
+      "pipedrive": "^13.2.4"
    }
 }

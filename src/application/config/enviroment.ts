@@ -1,16 +1,11 @@
-import dotenv from "dotenv";
-
-dotenv.config({ path: ".env" })
-
 
 /**
 |----------------------------------------------------------------------------------------|
     App Configuration
 |----------------------------------------------------------------------------------------|
 */
-export const ENVIRONMENT = process.env.NODE_ENV;
-const PROD = ENVIRONMENT === "production"
-export const PORT = process.env.PORT
+export const ENVIRONMENT = "development";
+export const PORT = "9000"
 
 
 /**
@@ -19,12 +14,12 @@ export const PORT = process.env.PORT
 |----------------------------------------------------------------------------------------|
 */
 
-export const SESSION_SECRET = process.env.JWT_SECRET || ""
+export const SESSION_SECRET = "4FB2CA80BAE7C66A721418A81CDFE3C1688F4D187EA16F9E9E2E19999893042F"
 
 /**
 * Use only if you include jwt
 */
-// if (!SESSION_SECRET) process.exit(1)
+ if (!SESSION_SECRET) process.exit(1)
 
 
 /**
@@ -33,7 +28,5 @@ export const SESSION_SECRET = process.env.JWT_SECRET || ""
 |----------------------------------------------------------------------------------------|
 */
 
-export const MONGODB_URI = PROD
-    ? process.env.MONGO_PRODUCTION $ExpectType string
-    : process.env.MONGO_DEVELOPMENT // $ExpectType string
+export const MONGODB_URI = "mongodb+srv://admin:mongoose@cluster0.rhw56.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" // $ExpectType string
     

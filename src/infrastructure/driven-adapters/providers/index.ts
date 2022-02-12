@@ -1,6 +1,14 @@
 import { ADD_USER_REPOSITORY } from "../../../domain/models/contracts/add-user-repository"
+import { ENCRYPT_REPOSITORY } from "../../../domain/models/contracts/encrypt-repository"
+import { GET_USERS_REPOSITORY } from "../../../domain/models/contracts/get-users-repository"
+import { HASH_COMPARE_REPOSITORY } from "../../../domain/models/contracts/hash-compare-repository"
+import { HASH_REPOSITORY } from "../../../domain/models/contracts/hash-repository"
+import { UPDATE_ACCESS_TOKEN_REPOSITORY } from "../../../domain/models/contracts/update-access-token-repository"
 import { ADD_USER_SERVICE } from "../../../domain/use-cases/add-user-service"
-import { AddUserServiceImpl } from "../../../domain/use-cases/impl/add-user-service-impl"
+import { AuthenticationServiceImpl } from "../../../domain/use-cases/impl/authentication-service-impl"
+import { AddUserServiceImpl } from "../../../domain/use-cases/impl/user/add-user-service-impl"
+import { BcryptAdapter } from "../adapters/bcrypt-adapter"
+import { JwtAdapter } from "../adapters/jwt-adapter"
 import { UserMongooseRepositoryAdapter } from "../adapters/orm/mongoose/user-mongoose-repository-adapter"
 
 export const adapters = [
@@ -46,9 +54,20 @@ export const services = [
         provide: GET_USERS_SERVICE,
         useClass: GetUsersServiceImpl,
     },
+
     {
 
         provide: AUTHENTICATION_SERVICE,
         useClass: AuthenticationServiceImpl,
-    }
+    },
+    {
+
+        provide: GET_SUCCESSFULL_LEADS_SERVICE,
+        useClass: AuthenticationServiceImpl,
+    },
+    {
+
+        provide: GET_LEADS_SERVICE,
+        useClass: AuthenticationServiceImpl,
+    },
 ]
