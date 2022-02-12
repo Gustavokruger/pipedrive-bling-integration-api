@@ -31,5 +31,5 @@ export const SESSION_SECRET = "4FB2CA80BAE7C66A721418A81CDFE3C1688F4D187EA16F9E9
 |----------------------------------------------------------------------------------------|
 */
 
-export const MONGODB_URI = "mongodb+srv://admin:mongoose@cluster0.rhw56.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" // $ExpectType string
+export const MONGODB_URI = "mongodb+srv://admin:mongoose@cluster0.rhw56.mongodb.net/pipedrive-bling-integration?retryWrites=true&w=majority" // $ExpectType string
     
