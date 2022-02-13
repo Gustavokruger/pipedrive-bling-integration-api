@@ -5,8 +5,4 @@ export type OrderModel = {
     stage_id: number;
 }
 
-export type AddOrderByDay = {
-    orders:  string[],
-    date:  Date,
-    total: number
-}
+

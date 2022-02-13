@@ -27,7 +27,9 @@
    },
    "dependencies": {
       "@tsclean/core": "^1.7.0",
+      "@types/agenda": "^4.1.0",
       "@types/node": "^17.0.16",
+      "agenda": "^4.2.1",
       "bcrypt": "^5.0.1",
       "dotenv": "^16.0.0",
       "helmet": "^5.0.2",
