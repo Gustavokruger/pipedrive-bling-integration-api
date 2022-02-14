@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
-import config from "../../../../config";
 
 import {AccessResourceInterface, ExecutionContextInterface} from "@tsclean/core";
-import { IEncrypt } from "../../../domain/models/contracts/encrypt-repository";
+import { IEncrypt } from "../../domain/models/contracts/encrypt-repository";
+import config from "../../../config";
 
 export class JwtAdapter implements IEncrypt {
 

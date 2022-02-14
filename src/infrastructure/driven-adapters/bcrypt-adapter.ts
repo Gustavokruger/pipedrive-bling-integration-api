@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
-import { IHashCompare } from "../../../domain/models/contracts/hash/hash-compare-repository";
-import { IHashRepository } from "../../../domain/models/contracts/hash/hash-repository";
+import { IHashCompare } from "../../domain/models/contracts/hash/hash-compare-repository";
+import { IHashRepository } from "../../domain/models/contracts/hash/hash-repository";
+
 
 export class BcryptAdapter implements IHashRepository, IHashCompare {
     private readonly salt: number = 12;

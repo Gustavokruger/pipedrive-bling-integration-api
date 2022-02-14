@@ -30,7 +30,7 @@ export class AddOrderServiceImpl implements IAddOrderService {
             });
             let order: OrderModel = {
                 id: randomInt(1 ,100),
-                data: moment('YYY-MM-DD').toDate(),
+                date: moment('YYY-MM-DD').toDate(),
                 client: {
                     id: deal.organization.id,
                     nome: deal.organization.name,

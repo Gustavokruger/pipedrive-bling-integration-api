@@ -15,7 +15,7 @@ export type ItemModel = {
 
 export type OrderModel = {
     id: number;
-    data: Date;
+    date: Date;
     client: ClientModel;
     itens: ItemModel[];
 }

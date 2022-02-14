@@ -1,7 +1,7 @@
-import { PIPEDRIVE_KEY } from "../../../application/config/enviroment";
-import { IGetDealsRepository } from "../../../domain/models/contracts/deal/get-deals-repository";
-import { IGetWonDealsRepository } from "../../../domain/models/contracts/deal/get-won-deals-repository";
-import { DealModel } from "../../../domain/models/deal";
+import config from "../../../config";
+import { IGetDealsRepository } from "../../domain/models/contracts/deal/get-deals-repository";
+import { IGetWonDealsRepository } from "../../domain/models/contracts/deal/get-won-deals-repository";
+import { DealModel } from "../../domain/models/deal";
 
 
 export class PipeDriveAdapter implements IGetDealsRepository, IGetWonDealsRepository {
@@ -9,7 +9,7 @@ export class PipeDriveAdapter implements IGetDealsRepository, IGetWonDealsReposi
     client: any = {};
 
     constructor(pipedrive = require('pipedrive')) {
-        this.client = new pipedrive.Client(PIPEDRIVE_KEY);
+        this.client = new pipedrive.Client(config.PIPEDRIVE_KEY);
 
     }
     map(data: any): any {

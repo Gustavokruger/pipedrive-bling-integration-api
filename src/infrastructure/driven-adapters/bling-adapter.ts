@@ -1,16 +1,17 @@
-import { IAddOrderRepository } from "../../../domain/models/contracts/order/add-order-repository";
-import { IGetOrdersByDayRepository } from "../../../domain/models/contracts/order/get-orders-by-day-repository";
-import {IGetOrdersRepository} from "../../../domain/models/contracts/order/get-orders-repository"
-import { OrderModel } from "../../../domain/models/order";
+
 import axios from  'axios'
-import { errorMonitor } from "events";
-import config from "../../../../config";
+import moment from 'moment';
+import config from '../../../config';
+import { IAddOrderRepository } from '../../domain/models/contracts/order/add-order-repository';
+import { IGetOrdersByDayRepository } from '../../domain/models/contracts/order/get-orders-by-day-repository';
+import { IGetOrdersRepository } from '../../domain/models/contracts/order/get-orders-repository';
+import { OrderModel } from '../../domain/models/order';
 
 export class BlingAdapter implements IAddOrderRepository, IGetOrdersRepository, IGetOrdersByDayRepository {
 
     map(data: any): any {
-        const {_id, status, filter_id, user_id, stage_id} = data;
-        return Object.assign({}, {id: _id.toString(), status, filter_id, user_id, stage_id})
+        const {_id, date, client, itens } = data;
+        return Object.assign({}, {id: _id.toString(), date, client, itens});
     }
 
     async addOrderRepository(feature: string ): Promise<OrderModel> {
@@ -31,9 +32,9 @@ export class BlingAdapter implements IAddOrderRepository, IGetOrdersRepository, 
         }
     }
 
-    async getOrdersByDayRepository(): Promise<DealModel[]> {
+    async getOrdersByDayRepository(): Promise<OrderModel[]> {
         try {
-            return await this.client.Deals.getAll({status: "won"});
+            return await axios.get(`https://bling.com.br/Api/v2/pedidos/json&apikey=${config.BLING_KEY}/filters=dataEmissao[${moment('YYY-MM-DD')} TO ${moment('YYY-MM-DD')} ]`, {headers: {'Content-Type': 'text/xml'}}).then(res => res.data);
         } catch (error) {
             throw error;
         }

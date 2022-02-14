@@ -5,9 +5,3 @@ export type DailyOrderModel = {
     date:  Date,
     total: number
 }
-
-export type AddDailyOrder = {
-    orders:  string[],
-    date:  Date,
-    total: number
-}
