@@ -35,7 +35,7 @@ async function run(): Promise<void> {
         ],
       }
     },
-    apis: ["./infraestructure/entry-points/api/*.ts"]
+    apis: [`${__dirname}/api/*.ts`]
   }
   
   const specs= swaggerJsDoc(options);

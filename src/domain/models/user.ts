@@ -21,7 +21,7 @@
  *         password: 050891
  */
 export type UserModel = {
-    id: string | number;
+    id: string;
     email: string;
     password: string;
     roles: UserRoleModel[];

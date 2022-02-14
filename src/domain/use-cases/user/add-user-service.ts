@@ -1,8 +1,8 @@
-import { AddUserParams } from "../../models/user";
+import { AddUserParams, UserModel } from "../../models/user";
 
 export const ADD_USER_SERVICE = "ADD_USER_SERVICE";
 export interface IAddUserService {
-    addUserService: (data: AddUserParams) => Promise<IAddUserService.Result | IAddUserService.Exist>
+    addUserService: (data: AddUserParams) => Promise<UserModel | IAddUserService.Exist>
 }
 
 export namespace IAddUserService {

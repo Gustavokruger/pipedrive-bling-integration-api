@@ -4,7 +4,7 @@ import { ADD_USER_SERVICE, IAddUserService } from "../../../../domain/use-cases/
 import { Auth } from "../../../helpers/auth";
 import { ValidateFields } from "../../../helpers/validate-fields";
 
-@Mapping('api/user')
+@Mapping('api/users')
 export class AddUserController {
 
     constructor(
