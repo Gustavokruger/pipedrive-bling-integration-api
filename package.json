@@ -49,6 +49,7 @@
       "pipedrive": "^13.2.4",
       "pipedrive-client": "^0.2.1",
       "swagger-jsdoc": "^6.1.0",
+      "swagger-ui-express": "^4.3.0",
       "xml2js": "^0.4.23"
    }
 }

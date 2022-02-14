@@ -26,6 +26,12 @@ import { BcryptAdapter } from "../bcrypt-adapter"
 import { BlingAdapter } from "../bling-adapter"
 import { JwtAdapter } from "../jwt-adapter"
 import { PipeDriveAdapter } from "../pipedrive-adapter"
+import { CHECK_EMAIL_REPOSITORY } from "../../../domain/models/contracts/check-email-repository"
+import { GET_DEAL_BY_ID_SERVICE } from "../../../domain/use-cases/deal/get-deal-by-id-service"
+import { GET_ORDERS_SERVICE } from "../../../domain/use-cases/order/get-orders-service"
+import { GetOrdersServiceImpl } from "../../../domain/use-cases/impl/order/get-orders-service-impl"
+import { ADD_ORDER_SERVICE } from "../../../domain/use-cases/order/add-order-service"
+import { AddOrderServiceImpl } from "../../../domain/use-cases/impl/order/add-order-service-impl"
 
 
 export const adapters = [
@@ -79,6 +85,10 @@ export const adapters = [
         useClass: JwtAdapter,
     },
     {
+        provide: CHECK_EMAIL_REPOSITORY,
+        useClass: UserMongooseRepositoryAdapter,
+    },
+    {
         provide: DECRYPT_REPOSITORY,
         useClass: JwtAdapter,
     }
@@ -111,4 +121,20 @@ export const services = [
         provide: GET_DEALS_SERVICE,
         useClass: AuthenticationServiceImpl,
     },
+    {
+
+        provide: GET_DEAL_BY_ID_SERVICE,
+        useClass: GetUsersServiceImpl,
+    },
+    {
+
+        provide: GET_ORDERS_SERVICE,
+        useClass: GetOrdersServiceImpl,
+    },
+    {
+
+        provide: ADD_ORDER_SERVICE,
+        useClass: AddOrderServiceImpl,
+    },
+
 ]

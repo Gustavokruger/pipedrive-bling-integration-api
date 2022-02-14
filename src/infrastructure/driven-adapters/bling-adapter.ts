@@ -1,7 +1,7 @@
 
 import axios from  'axios'
 import moment from 'moment';
-import config from '../../../config';
+import { BLING_KEY } from '../../application/config/enviroment';
 import { IAddOrderRepository } from '../../domain/models/contracts/order/add-order-repository';
 import { IGetOrdersByDayRepository } from '../../domain/models/contracts/order/get-orders-by-day-repository';
 import { IGetOrdersRepository } from '../../domain/models/contracts/order/get-orders-repository';
@@ -16,7 +16,7 @@ export class BlingAdapter implements IAddOrderRepository, IGetOrdersRepository, 
 
     async addOrderRepository(feature: string ): Promise<OrderModel> {
         try {
-            return await axios.post(`https://bling.com.br/Api/v2/pedido/apikey=${config.BLING_KEY}`, feature, {headers: {'Content-Type': 'text/xml'}})
+            return await axios.post(`https://bling.com.br/Api/v2/pedido/apikey=${BLING_KEY}`, feature, {headers: {'Content-Type': 'text/xml'}})
                 .then(res => res.data);
         } catch (error) {
             throw error;
@@ -26,7 +26,7 @@ export class BlingAdapter implements IAddOrderRepository, IGetOrdersRepository, 
 
     async getOrdersRepository(): Promise<OrderModel[]> {
         try {
-            return await axios.get(`https://bling.com.br/Api/v2/pedidos/json&apikey=${config.BLING_KEY}`, {headers: {'Content-Type': 'text/xml'}})
+            return await axios.get(`https://bling.com.br/Api/v2/pedidos/json&apikey=${BLING_KEY}`, {headers: {'Content-Type': 'text/xml'}})
         } catch (error) {
             throw error;
         }
@@ -34,7 +34,7 @@ export class BlingAdapter implements IAddOrderRepository, IGetOrdersRepository, 
 
     async getOrdersByDayRepository(): Promise<OrderModel[]> {
         try {
-            return await axios.get(`https://bling.com.br/Api/v2/pedidos/json&apikey=${config.BLING_KEY}/filters=dataEmissao[${moment('YYY-MM-DD')} TO ${moment('YYY-MM-DD')} ]`, {headers: {'Content-Type': 'text/xml'}}).then(res => res.data);
+            return await axios.get(`https://bling.com.br/Api/v2/pedidos/json&apikey=${BLING_KEY}/filters=dataEmissao[${moment('YYY-MM-DD')} TO ${moment('YYY-MM-DD')} ]`, {headers: {'Content-Type': 'text/xml'}}).then(res => res.data);
         } catch (error) {
             throw error;
         }
