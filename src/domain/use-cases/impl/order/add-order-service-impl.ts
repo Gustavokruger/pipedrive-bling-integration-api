@@ -16,7 +16,7 @@ export class AddOrderServiceImpl implements IAddOrderService {
         @Adapter(GET_DEAL_BY_ID_REPOSITORY) private readonly getDealByIdRepository: IGetDealByIdRepository,
     ) {}
 
-    async addOrderService(dealId: string): Promise<OrderModel> {
+    async addOrderService(dealId: number): Promise<OrderModel> {
         try {
             const deal = await this.getDealByIdRepository.getDealByIdRepository(dealId);
             let orderItens: ItemModel[] = [];

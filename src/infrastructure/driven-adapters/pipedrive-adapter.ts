@@ -25,7 +25,7 @@ export class PipeDriveAdapter implements IGetDealsRepository, IGetWonDealsReposi
         }
     }
 
-    async getDealByIdRepository(dealId: string): Promise<DealModel> {
+    async getDealByIdRepository(dealId: number): Promise<DealModel> {
         try {
             return await this.client.Deals.get({id: dealId});
         } catch (error) {
