@@ -8,8 +8,7 @@ import { UPDATE_ACCESS_TOKEN_REPOSITORY } from "../../../domain/models/contracts
 import { ADD_USER_SERVICE } from "../../../domain/use-cases/user/add-user-service"
 import { AuthenticationServiceImpl } from "../../../domain/use-cases/impl/authentication-service-impl"
 import { AddUserServiceImpl } from "../../../domain/use-cases/impl/user/add-user-service-impl"
-import { BcryptAdapter } from "../adapters/bcrypt-adapter"
-import { JwtAdapter } from "../adapters/jwt-adapter"
+
 import { UserMongooseRepositoryAdapter } from "../adapters/orm/mongoose/user-mongoose-repository-adapter"
 import { DECRYPT_REPOSITORY } from "../../../domain/models/contracts/decrypt-repository"
 import { GetUsersServiceImpl } from "../../../domain/use-cases/impl/user/get-users-service-impl"
@@ -18,12 +17,15 @@ import { GET_USERS_SERVICE } from "../../../domain/use-cases/user/get-users-serv
 import { GET_WON_DEALS_REPOSITORY } from "../../../domain/models/contracts/deal/get-won-deals-repository"
 import { GET_WON_DEALS_SERVICE } from "../../../domain/use-cases/deal/get-won-deals-service"
 import { GET_DEALS_SERVICE } from "../../../domain/use-cases/deal/get-deals-service"
-import { PipeDriveAdapter } from "../adapters/pipedrive-adapter"
 import { ADD_ORDER_REPOSITORY } from "../../../domain/models/contracts/order/add-order-repository"
 import { GET_DEAL_BY_ID_REPOSITORY } from "../../../domain/models/contracts/deal/get-deal-by-id-repository"
-import { BlingAdapter } from "../adapters/bling-adapter"
+
 import { GET_ORDERS_REPOSITORY } from "../../../domain/models/contracts/order/get-orders-repository"
 import { GET_ORDERS_BY_DAY_REPOSITORY } from "../../../domain/models/contracts/order/get-orders-by-day-repository"
+import { BcryptAdapter } from "../bcrypt-adapter"
+import { BlingAdapter } from "../bling-adapter"
+import { JwtAdapter } from "../jwt-adapter"
+import { PipeDriveAdapter } from "../pipedrive-adapter"
 
 
 export const adapters = [

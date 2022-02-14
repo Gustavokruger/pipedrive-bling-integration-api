@@ -1,6 +1,6 @@
 import {Mapping, Get} from "@tsclean/core";
 
-@Mapping('api/add-user')
+@Mapping('api/user')
 export class AddUserController {
 
     constructor() {

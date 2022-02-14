@@ -5,3 +5,9 @@ export type DailyOrderModel = {
     date:  Date,
     total: number
 }
+
+export type AddDailyOrder = {
+    orders:  number[],
+    date:  Date,
+    total: number
+}

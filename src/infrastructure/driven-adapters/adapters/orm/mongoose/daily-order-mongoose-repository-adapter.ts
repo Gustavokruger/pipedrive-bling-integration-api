@@ -1,6 +1,6 @@
 
-import { OrderByDaySchema } from "./models/orderByDay";
-import { DailyOrderModel } from "../../../../../domain/models/dailyOrder";
+import { DailyOrderSchema } from "./models/dailyOrder";
+import { AddDailyOrder, DailyOrderModel } from "../../../../../domain/models/dailyOrder";
 
 export class DailyOrderMongooseRepositoryAdapter {
 
@@ -10,10 +10,10 @@ export class DailyOrderMongooseRepositoryAdapter {
     }
 
     async getDailyOrderRepository(): Promise<DailyOrderModel[]> {
-        return OrderByDaySchema.find();
+        return DailyOrderSchema.find();
     }
 
-    async addDailyOrderRepository(dailyOrder: DailyOrderModel): Promise<DailyOrderModel> {
-        return await OrderByDaySchema.create(dailyOrder);
+    async addDailyOrderRepository(dailyOrder: AddDailyOrder): Promise<AddDailyOrder> {
+        return await DailyOrderSchema.create(dailyOrder);
     }
 }

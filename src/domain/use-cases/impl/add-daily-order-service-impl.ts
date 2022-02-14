@@ -2,7 +2,7 @@ import {Adapter, Service} from "@tsclean/core";
 import moment from "moment";
 import { ADD_DAILY_ORDER_REPOSITORY, IAddDailyOrderRepository } from "../../models/contracts/daily-order/add-daily-order-repository";
 import { GET_ORDERS_BY_DAY_REPOSITORY, IGetOrdersByDayRepository } from "../../models/contracts/order/get-orders-by-day-repository";
-import { DailyOrderModel } from "../../models/dailyOrder";
+import { AddDailyOrder, DailyOrderModel } from "../../models/dailyOrder";
 import { OrderModel } from "../../models/order";
 import { IAddDailyOrderService } from "../add-daily-order-service";
 
@@ -16,16 +16,18 @@ export class AddDailyOrderServiceImpl implements IAddDailyOrderService {
     ) {
     }
 
-    async addDailyOrderService(): Promise<DailyOrderModel> {
+    async addDailyOrderService(): Promise<AddDailyOrder> {
         let sum: number = 0;
-        const orders: OrderModel[] =  await this.getOrdersByDayRepository.getOrdersByDayRepository();
+        let ordersIds: number[] = [];
+        const orders: OrderModel[] =  await (await this.getOrdersByDayRepository.getOrdersByDayRepository());
         orders.forEach(order => {
+            ordersIds.push(order.id);
             order.itens.forEach(item => {
                 sum += item.vlr_unit;
             })
         });
-        let dailyOrder: DailyOrderModel = {
-            orders: orders,
+        let dailyOrder: AddDailyOrder = {
+            orders: ordersIds,
             date:  moment("YYY-MM-DD").toDate(),
             total: sum
         }

@@ -10,7 +10,7 @@ export class GetWonDealsServiceImpl implements IGetWonDealsService {
         private readonly getWonDealsRepository: IGetWonDealsRepository
     ) {}
 
-    async getDealsService(): Promise<DealModel[]> {
+    async getWonDealsService(): Promise<DealModel[]> {
         return await this.getWonDealsRepository.getWonDealsRepository();
     }
 }
