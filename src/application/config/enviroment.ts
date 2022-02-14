@@ -1,13 +1,14 @@
+import config from "../../../config";
 
 /**
 |----------------------------------------------------------------------------------------|
     App Configuration
 |----------------------------------------------------------------------------------------|
 */
-export const ENVIRONMENT = "development";
-export const PORT = "9000"
-export const PIPEDRIVE_KEY= "7ba0b907f21eb4fa08d96b877e069e175397a48c";
-export const BLING_KEY=  "6216b723f3b34b8cc12395a46807d2a287bab8c80d23d9ea4399291feb6f9d506623cc24";
+export const ENVIRONMENT = config.NODE_ENV;
+export const PORT = config.PORT
+export const PIPEDRIVE_KEY= config.PIPEDRIVE_KEY;
+export const BLING_KEY=  config.BLING_KEY;
 
 
 
@@ -17,7 +18,7 @@ export const BLING_KEY=  "6216b723f3b34b8cc12395a46807d2a287bab8c80d23d9ea439929
 |----------------------------------------------------------------------------------------|
 */
 
-export const SESSION_SECRET = "4FB2CA80BAE7C66A721418A81CDFE3C1688F4D187EA16F9E9E2E19999893042F"
+export const SESSION_SECRET = config.JWT_SECRET;
 
 /**
 * Use only if you include jwt
@@ -31,5 +32,5 @@ export const SESSION_SECRET = "4FB2CA80BAE7C66A721418A81CDFE3C1688F4D187EA16F9E9
 |----------------------------------------------------------------------------------------|
 */
 
-export const MONGODB_URI = "mongodb+srv://admin:mongoose@cluster0.rhw56.mongodb.net/pipedrive-bling-integration?retryWrites=true&w=majority" // $ExpectType string
+export const MONGODB_URI = config.MONGO_URI // $ExpectType string
     
