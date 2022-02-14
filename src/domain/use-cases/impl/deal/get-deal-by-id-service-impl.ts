@@ -9,7 +9,7 @@ export class GetDealByIdServiceImpl implements IGetDealByIdService {
         @Adapter(GET_DEAL_BY_ID_REPOSITORY) private readonly getDealByIdRepository: IGetDealByIdRepository
     ) {}
 
-    async getDealByIdService(id: string): Promise<DealModel> {
+    async getDealByIdService(id: number): Promise<DealModel> {
         return await this.getDealByIdRepository.getDealByIdRepository(id);
     }
 }

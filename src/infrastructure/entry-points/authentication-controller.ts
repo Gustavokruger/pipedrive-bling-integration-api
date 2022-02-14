@@ -1,6 +1,6 @@
 import { Mapping, Inject, Post, Body } from "@tsclean/core";
-import { AUTHENTICATION_SERVICE, IAuthenticationService } from "../../../domain/use-cases/authentication-service";
-import { ValidateFields } from "../../helpers/validate-fields";
+import { AUTHENTICATION_SERVICE, IAuthenticationService } from "../../domain/use-cases/authentication-service";
+import { ValidateFields } from "../helpers/validate-fields";
 
 @Mapping('api/authentication')
 export class AuthenticationController {
