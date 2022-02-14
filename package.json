@@ -28,13 +28,20 @@
    "dependencies": {
       "@tsclean/core": "^1.7.0",
       "@types/agenda": "^4.1.0",
+      "@types/axios": "^0.14.0",
+      "@types/moment": "^2.13.0",
       "@types/node": "^17.0.16",
+      "@types/xml2js": "^0.4.9",
       "agenda": "^4.2.1",
+      "axios": "^0.26.0",
       "bcrypt": "^5.0.1",
       "dotenv": "^16.0.0",
       "helmet": "^5.0.2",
       "jsonwebtoken": "^8.5.1",
+      "moment": "^2.29.1",
       "mongoose": "^6.2.1",
-      "pipedrive": "^13.2.4"
+      "pipedrive": "^13.2.4",
+      "pipedrive-client": "^0.2.1",
+      "xml2js": "^0.4.23"
    }
 }

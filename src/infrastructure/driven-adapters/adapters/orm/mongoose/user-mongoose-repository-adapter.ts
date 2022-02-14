@@ -6,8 +6,8 @@ import mongoose from "mongoose";
 export class UserMongooseRepositoryAdapter {
 
     map(data: any): any {
-        const {_id, firstName, lastName, email, password, roles} = data
-        return Object.assign({}, {id: _id.toString(), firstName, lastName, email, password, roles})
+        const {_id, email, password} = data
+        return Object.assign({}, {id: _id.toString(), email, password})
     }
 
     async getUsersRepository(): Promise<UserModel[]> {

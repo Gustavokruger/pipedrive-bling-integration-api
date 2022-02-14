@@ -12,6 +12,6 @@ export class AddDailyOrderServiceImpl implements IAddDailyOrderService {
     }
 
     async addOrderByDayService(): Promise<AddDailyOrder> {
-        const orders =  await this.getOrderRepository.getOrderRepository();
+        const ord3ers =  await this.getOrderRepository.getOrderRepository();
     }
 }

@@ -6,8 +6,7 @@ import { IGetDealsService } from "../../deal/get-deals-service";
 @Service()
 export class GetDealsServiceImpl implements IGetDealsService {
     constructor(
-        @Adapter(GET_DEALS_REPOSITORY)
-        private readonly getDealsRepository: IGetDealsRepository
+        @Adapter(GET_DEALS_REPOSITORY) private readonly getDealsRepository: IGetDealsRepository
     ) {}
 
     async getDealsService(): Promise<DealModel[]> {
