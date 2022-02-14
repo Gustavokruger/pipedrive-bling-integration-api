@@ -18,6 +18,12 @@ import { GET_USERS_SERVICE } from "../../../domain/use-cases/user/get-users-serv
 import { GET_WON_DEALS_REPOSITORY } from "../../../domain/models/contracts/deal/get-won-deals-repository"
 import { GET_WON_DEALS_SERVICE } from "../../../domain/use-cases/deal/get-won-deals-service"
 import { GET_DEALS_SERVICE } from "../../../domain/use-cases/deal/get-deals-service"
+import { PipeDriveAdapter } from "../adapters/pipedrive-adapter"
+import { ADD_ORDER_REPOSITORY } from "../../../domain/models/contracts/order/add-order-repository"
+import { GET_DEAL_BY_ID_REPOSITORY } from "../../../domain/models/contracts/deal/get-deal-by-id-repository"
+import { BlingAdapter } from "../adapters/bling-adapter"
+import { GET_ORDERS_REPOSITORY } from "../../../domain/models/contracts/order/get-orders-repository"
+import { GET_ORDERS_BY_DAY_REPOSITORY } from "../../../domain/models/contracts/order/get-orders-by-day-repository"
 
 
 export const adapters = [
@@ -36,11 +42,27 @@ export const adapters = [
     },
     {
         provide: GET_DEALS_REPOSITORY,
-        useClass: UserMongooseRepositoryAdapter,
+        useClass: PipeDriveAdapter,
+    },
+    {
+        provide: GET_DEAL_BY_ID_REPOSITORY,
+        useClass: PipeDriveAdapter,
     },
     {
         provide: GET_WON_DEALS_REPOSITORY,
-        useClass: UserMongooseRepositoryAdapter,
+        useClass: PipeDriveAdapter,
+    },
+    {
+        provide: ADD_ORDER_REPOSITORY,
+        useClass: BlingAdapter,
+    },
+    {
+        provide: GET_ORDERS_REPOSITORY,
+        useClass: PipeDriveAdapter,
+    },
+    {
+        provide: GET_ORDERS_BY_DAY_REPOSITORY,
+        useClass: PipeDriveAdapter,
     },
     {
         provide: UPDATE_ACCESS_TOKEN_REPOSITORY,
