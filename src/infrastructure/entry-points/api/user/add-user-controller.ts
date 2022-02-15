@@ -1,5 +1,5 @@
 import {Mapping, Get, Adapter, Body, Post} from "@tsclean/core";
-import { AddUserParams } from "../../../../domain/models/user";
+import { AddUserParams, UserModel } from "../../../../domain/models/user";
 import { ADD_USER_SERVICE, IAddUserService } from "../../../../domain/use-cases/user/add-user-service";
 import { Auth } from "../../../helpers/auth";
 import { ValidateFields } from "../../../helpers/validate-fields";
@@ -13,7 +13,7 @@ export class AddUserController {
     }
    
     @Post()
-    async addUserController(@Body() data: AddUserParams): Promise<IAddUserService.Result | IAddUserService.Exist | any> {
+    async addUserController(@Body() data: AddUserParams): Promise<UserModel | IAddUserService.Exist | any> {
 
         const {errors, isValid} = ValidateFields.fieldsValidation(data);
 
