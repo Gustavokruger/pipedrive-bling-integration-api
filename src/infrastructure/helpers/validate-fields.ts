@@ -3,7 +3,7 @@ export const REGEX = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,
 export class ValidateFields {
 
     static fieldsValidation(data: any) {
-        let errors: any;
+        let errors: any = [];
         for (const key in data) {
             if (ValidateFields.isFieldEmpty(data[key])) {
                 errors[key] = `${key} field is required`

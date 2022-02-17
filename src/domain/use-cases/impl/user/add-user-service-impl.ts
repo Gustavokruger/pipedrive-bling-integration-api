@@ -19,9 +19,7 @@ export class AddUserServiceImpl implements IAddUserService {
     async addUserService(data: AddUserParams): Promise<IAddUserService.Result | IAddUserService.Exist> {
         const userExist = await this.checkEmailRepository.checkEmail(data.email);
         if (userExist) return true
-      
-
-            
+  
         const hashPassword = await this.hash.hash(data.password);
         return await this.addUserRepository.addUserRepository({...data, password: hashPassword});
         
