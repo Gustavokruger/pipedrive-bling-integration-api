@@ -47,28 +47,8 @@ export class PipeDriveAdapter implements IGetDealsRepository, IGetWonDealsReposi
 
     async getDealsRepository(): Promise<DealModel[]> {
         try {
-            let responses = await axios.get(`https://gustavovonkruger.pipedrive.com/api/v1/deals?api_token=${PIPEDRIVE_KEY}`, {headers: {'Content-Type': 'application/json'}}).then(r => r.data);
-            let deals: DealModel[] = [];
-
-            responses.array.forEach(deal => {
-                deals = [...deals, {
-                    id: deal.id,
-                    title: deal.title,
-                    status: deal.status,
-                    filter_id: deal.filter_id,
-                    user_id: deal.user_id,
-                    stage_id: deal.stage_id,
-                    organization: deal.organization,
-                    value: deal.value,
-                    currency: deal.currency,
-                    add_time: deal.add_time,
-                    active: deal.active,
-                    deleted: deal.deleted,
-                    products_count: deal.products_count,
-                    products: deal.products,
-                }]
-            });
-            return deals;
+            let response: DealModel[] = await axios.get(`https://gustavovonkruger.pipedrive.com/api/v1/deals?api_token=${PIPEDRIVE_KEY}`, {headers: {'Content-Type': 'application/json'}}).then(r => r.data);
+            return response;
         } catch (error) {
             throw error;
         }
