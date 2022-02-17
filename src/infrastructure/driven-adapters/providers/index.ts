@@ -32,6 +32,8 @@ import { GET_ORDERS_SERVICE } from "../../../domain/use-cases/order/get-orders-s
 import { GetOrdersServiceImpl } from "../../../domain/use-cases/impl/order/get-orders-service-impl"
 import { ADD_ORDER_SERVICE } from "../../../domain/use-cases/order/add-order-service"
 import { AddOrderServiceImpl } from "../../../domain/use-cases/impl/order/add-order-service-impl"
+import { GetWonDealsServiceImpl } from "../../../domain/use-cases/impl/deal/get-won-deals-service-impl"
+import { GetDealsServiceImpl } from "../../../domain/use-cases/impl/deal/get-deals-service-impl"
 
 
 export const adapters = [
@@ -114,12 +116,12 @@ export const services = [
     {
 
         provide: GET_WON_DEALS_SERVICE,
-        useClass: AuthenticationServiceImpl,
+        useClass: GetWonDealsServiceImpl,
     },
     {
 
         provide: GET_DEALS_SERVICE,
-        useClass: AuthenticationServiceImpl,
+        useClass: GetDealsServiceImpl,
     },
     {
 

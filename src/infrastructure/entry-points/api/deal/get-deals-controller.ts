@@ -11,7 +11,7 @@ export class GetDealsController {
     }
 
     @Get()
-    @Auth(["admin"])
+    @Auth([""])
     async GetDealsController(): Promise<DealModel[]> {
         return await this.getDealsService.getDealsService();
     }

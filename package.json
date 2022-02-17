@@ -46,7 +46,7 @@
       "moment": "^2.29.1",
       "mongoose": "^6.2.1",
       "nodemon": "^2.0.15",
-      "pipedrive": "^13.2.4",
+      "pipedrive": "^11.0.0",
       "pipedrive-client": "^0.2.1",
       "swagger-jsdoc": "^6.1.0",
       "swagger-ui-express": "^4.3.0",
