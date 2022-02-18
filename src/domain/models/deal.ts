@@ -18,7 +18,7 @@ type PriceModel = {
     cost:number;
 }
 
-type ProductModel =  {
+export type ProductModel =  {
     id: number;
     name: string;
     code: string;

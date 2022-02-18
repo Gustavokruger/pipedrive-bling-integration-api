@@ -34,6 +34,7 @@ import { ADD_ORDER_SERVICE } from "../../../domain/use-cases/order/add-order-ser
 import { AddOrderServiceImpl } from "../../../domain/use-cases/impl/order/add-order-service-impl"
 import { GetWonDealsServiceImpl } from "../../../domain/use-cases/impl/deal/get-won-deals-service-impl"
 import { GetDealsServiceImpl } from "../../../domain/use-cases/impl/deal/get-deals-service-impl"
+import { GET_DEAL_PRODUCTS_REPOSITORY } from "../../../domain/models/contracts/get-deal-products-repository"
 
 
 export const adapters = [
@@ -53,6 +54,10 @@ export const adapters = [
     {
         provide: GET_DEALS_REPOSITORY,
         useClass: PipeDriveAdapter,
+    },
+    {
+        provide: GET_DEAL_PRODUCTS_REPOSITORY,
+        useClass: PipeDriveAdapter
     },
     {
         provide: GET_DEAL_BY_ID_REPOSITORY,
@@ -93,7 +98,8 @@ export const adapters = [
     {
         provide: DECRYPT_REPOSITORY,
         useClass: JwtAdapter,
-    }
+    },
+
 ]
 
 export const services = [

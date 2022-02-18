@@ -7,6 +7,7 @@ import { IAddOrderService } from "../../order/add-order-service";
 import Parser from 'xml2js';
 import { Date } from "mongoose";
 import moment from "moment";
+import { GET_DEAL_PRODUCTS_REPOSITORY, IGetDealProductsRepository } from "../../../models/contracts/get-deal-products-repository";
 
 
 @Service()
@@ -14,13 +15,16 @@ export class AddOrderServiceImpl implements IAddOrderService {
     constructor(
         @Adapter(ADD_ORDER_REPOSITORY) private readonly addOrderRepository: IAddOrderRepository,
         @Adapter(GET_DEAL_BY_ID_REPOSITORY) private readonly getDealByIdRepository: IGetDealByIdRepository,
+        @Adapter(GET_DEAL_PRODUCTS_REPOSITORY) private readonly getDealProductsRepository: IGetDealProductsRepository,
     ) {}
 
     async addOrderService(dealId: number): Promise<OrderModel> {
         try {
             const deal = await this.getDealByIdRepository.getDealByIdRepository(dealId);
+            console.log(deal)
+            const products = await this.getDealProductsRepository.getDealProductsRepository(dealId);
             let orderItens: ItemModel[] = [];
-            deal.products.forEach(product => {
+            products.forEach(product => {
                 orderItens.push({
                     codigo: product.id,
                     descricao: product.description,
