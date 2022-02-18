@@ -1,14 +1,14 @@
 # pipedrive-bling-integration-api
 
-this api was build only for knowledge purposes. Feel free to suggest any.
+This api was build only for knowledge purposes. Feel free to suggest anything that could improve it.
 
 # Getting Started
 
-to build the project dependencies (you must have npm installed on your machine)
+To build the project dependencies (you must have npm installed on your machine)
   
     npm i
   
-to run the project
+To run the project
 
     npm run watch
  
