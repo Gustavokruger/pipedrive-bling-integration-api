@@ -6,11 +6,11 @@ this api was build only for knowledge purposes. Feel free to suggest any.
 
 to build the project dependencies (you must have npm installed on your machine)
   
-  npm i
+    npm i
   
 to run the project
 
-  npm run watch
+    npm run watch
  
 
 
