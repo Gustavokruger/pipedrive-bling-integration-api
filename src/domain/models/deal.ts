@@ -1,4 +1,4 @@
-type ClientModel = {
+export type ClientModel = {
     id: number;
     name: string;
     people_count: number;
@@ -6,7 +6,6 @@ type ClientModel = {
     address: string;
     active_flag: boolean;
     cc_email: string;
-    value:number;
 
 }
 
@@ -41,9 +40,8 @@ export type DealModel = {
     filter_id: number;
     user_id: number;
     stage_id: number;
-    organization: ClientModel;
-    value: number;
-    currency: string;
+    weighted_value: number;
+    weighted_value_currency: string;
     add_time: string;
     active: boolean;
     deleted: boolean;

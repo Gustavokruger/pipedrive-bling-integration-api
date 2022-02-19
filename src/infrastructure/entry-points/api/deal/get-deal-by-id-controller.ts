@@ -1,5 +1,5 @@
 import {Adapter, Get, Mapping, Query} from "@tsclean/core";
-import { DealModel } from "../../../../domain/models/deal";
+import { ClientModel, DealModel } from "../../../../domain/models/deal";
 import { GET_DEAL_BY_ID_SERVICE, IGetDealByIdService } from "../../../../domain/use-cases/deal/get-deal-by-id-service";
 import { Auth } from "../../../helpers/auth";
 
@@ -12,7 +12,7 @@ export class GetDealByIdController {
 
     @Get()
     @Auth(["admin"])
-    async getDealByIdController(@Query() id: number): Promise<DealModel> {
+    async getDealByIdController(@Query() id: number): Promise<{deal: DealModel, organization: ClientModel}> {
         return await this.getDealById.getDealByIdService(id)
     }
 }

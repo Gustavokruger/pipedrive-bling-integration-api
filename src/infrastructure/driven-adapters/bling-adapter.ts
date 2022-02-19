@@ -16,7 +16,7 @@ export class BlingAdapter implements IAddOrderRepository, IGetOrdersRepository, 
 
     async addOrderRepository(feature: string ): Promise<OrderModel> {
         try {
-            return await axios.post(`https://bling.com.br/Api/v2/pedido/apikey=${BLING_KEY}`, feature, {headers: {'Content-Type': 'text/xml'}})
+            return await axios.post(`https://bling.com.br/Api/v2/pedidos/json/?apikey=${BLING_KEY}&xml=${feature}`, {headers: {'Content-Type': 'text/xml'}})
                 .then(res => res.data);
         } catch (error) {
             throw error;

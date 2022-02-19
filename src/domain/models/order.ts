@@ -1,10 +1,5 @@
+import { ClientModel } from "./deal"
 
-type ClientModel = {
-    id: number;
-    nome: string;
-    email: string;
-    endereco: string;
-}
 
 export type ItemModel = {
     codigo: number;
@@ -16,7 +11,7 @@ export type ItemModel = {
 export type OrderModel = {
     id: number;
     date: Date;
-    client: ClientModel;
+    client: any;
     itens: ItemModel[];
 }
 

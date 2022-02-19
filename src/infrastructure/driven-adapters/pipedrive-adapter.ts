@@ -1,9 +1,10 @@
 import { Adapter } from "@tsclean/core";
+import { database } from "agenda/dist/agenda/database";
 import axios from "axios";
 import { PIPEDRIVE_KEY } from "../../application/config/enviroment";
 import { IGetDealsRepository } from "../../domain/models/contracts/deal/get-deals-repository";
 import { IGetWonDealsRepository } from "../../domain/models/contracts/deal/get-won-deals-repository";
-import { DealModel, ProductModel } from "../../domain/models/deal";
+import { ClientModel, DealModel, ProductModel } from "../../domain/models/deal";
 
 
 const pipedrive = require('pipedrive');
@@ -60,10 +61,11 @@ export class PipeDriveAdapter implements IGetDealsRepository, IGetWonDealsReposi
         }
     }
 
-    async getDealByIdRepository(dealId: number): Promise<DealModel> {
+    async getDealByIdRepository(dealId: number): Promise<{deal: DealModel, organization: any}> {
         try {
-            let response: DealModel = await axios.get(`https://gustavovonkruger.pipedrive.com/api/v1/deals?id=${dealId}&api_token=${PIPEDRIVE_KEY}`, {headers: {'Content-Type': 'application/json'}}).then(r => r.data);
-            return response;
+            let response = await axios.get(`https://gustavovonkruger.pipedrive.com/api/v1/deals?id=${dealId}&api_token=${PIPEDRIVE_KEY}`, {headers: {'Content-Type': 'application/json'}}).then((r) =>  r.data);
+
+            return {deal: response, organization: response.related_objects.organization};
         } catch (error) {
             throw error;
         }
